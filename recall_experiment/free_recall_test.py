@@ -5,14 +5,14 @@ import time
 import csv
 import os
 
-# Current script's folder
-this_dir = os.getcwd()
+# Main directory folder
+main_dir = os.getcwd()
 
-# Parent folder (one level up)
-main_dir = os.path.dirname(this_dir)
+# Current directory folder
+this_dir = os.path.dirname(__file__)
 
-# Data folder (different from this_dir)
-data_dir = os.path.join(main_dir, 'data')
+# Data folder path
+data_dir = os.path.join(this_dir, 'data')
 
 # print(main_dir)
 # print(this_dir)
@@ -80,7 +80,7 @@ while collecting:
             else:
                 user_input += event.unicode  # append typed character
 
-# show final input
+# --- final output ---
 
 # compare with original list
 print('You typed:', user_input)
@@ -114,5 +114,21 @@ while Running:
     accuracy_rect = accuracy_surface.get_rect(center=(640, 470))
     screen.blit(accuracy_surface, accuracy_rect)
     pygame.display.flip()
+
+# --- Save to CSV ---
+
+# we need to save the data in a CSV file. We save in the following order:
+# user_input, words, accuracy, timestamp, participant_id, session_id, trial_num, condition, list_id, list_order
+
+os.makedirs(data_dir, exist_ok=True)
+
+csv_file = os.path.join(data_dir, 'free_recall_results.csv')
+# print("Saving CSV to:", csv_file)
+
+with open(csv_file, 'a', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow([user_input])
+
+print("User input saved:", user_input)
 
 pygame.quit()
