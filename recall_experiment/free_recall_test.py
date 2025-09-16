@@ -117,18 +117,34 @@ while Running:
 
 # --- Save to CSV ---
 
-# we need to save the data in a CSV file. We save in the following order:
-# user_input, words, accuracy, timestamp, participant_id, session_id, trial_num, condition, list_id, list_order
-
 os.makedirs(data_dir, exist_ok=True)
-
 csv_file = os.path.join(data_dir, 'free_recall_results.csv')
-# print("Saving CSV to:", csv_file)
 
-with open(csv_file, 'a', newline='') as f:
+# Split brugerens input til en liste
+user_words_list = user_input.strip().split()
+
+# Konverter til streng med klammeparenteser
+true_words_str = "[" + ", ".join(Words) + "]"
+user_words_str = "[" + ", ".join(user_words_list) + "]"
+
+# Tæl hvor mange runs der allerede er i filen
+if os.path.exists(csv_file) and os.path.getsize(csv_file) > 0:
+    with open(csv_file, 'r', encoding='utf-8') as f:
+        num_runs = sum(1 for _ in f) - 1  # -1 for header
+else:
+    num_runs = 0
+
+test_id = num_runs + 1  # næste testnummer
+
+# Skriv til CSV
+file_exists_and_has_content = os.path.exists(csv_file) and os.path.getsize(csv_file) > 0
+
+with open(csv_file, 'a', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
-    writer.writerow([user_input])
 
-print("User input saved:", user_input)
+    if not file_exists_and_has_content:
+        writer.writerow(['test', 'true_words', 'user_words'])  # header
 
-pygame.quit()
+    writer.writerow([test_id, true_words_str, user_words_str])
+
+print(f"Data gemt i {csv_file} (test {test_id})")

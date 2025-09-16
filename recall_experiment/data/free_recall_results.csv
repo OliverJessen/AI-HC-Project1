@@ -1,1 +1,3 @@
-cat dog car pen box cup tap""
+trial, presented_words, recalled_words
+1,"[cat, dog, car, pen, box, cup, tap]","[cat, dog, car, pen, dog, box, tap]"
+2,"[cat, dog, car, pen, box, cup, tap]","[cat, dog, tap]"
