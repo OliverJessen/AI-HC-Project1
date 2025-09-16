@@ -34,7 +34,7 @@ clock = pygame.time.Clock()
 # Present words once
 for word in Words:
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT or event.type == pygame.K_ESCAPE:
             pygame.quit()
             exit()
 
