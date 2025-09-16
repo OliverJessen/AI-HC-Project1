@@ -50,7 +50,7 @@ for word in Words:
 
 # --- Collect typed input ---
 user_input = ''
-prompt = 'Type your recall and press Enter:'
+prompt = 'Type your recall and press Enter when done:'
 
 collecting = True
 while collecting:
