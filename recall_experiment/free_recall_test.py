@@ -30,13 +30,12 @@ def load_words_from_csv(csv_path):
                 if row:  # Make sure row is not empty
                     words.append(row[0])  # Assuming words are in first column
     except FileNotFoundError:
-        print(f"Warning: Could not find {csv_path}, using default words")
-        return ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
+        print(f"Warning: Could not find {csv_path}")
     return words
 
 # Load words and select a random subset
 all_words = load_words_from_csv(words_csv_path)
-Words = random.sample(all_words, min(7, len(all_words)))  # Select 7 random words
+Words = random.sample(all_words, min(20, len(all_words)))  # Select 20 random words
 
 
 #-----------------------------------------------
@@ -44,7 +43,8 @@ Words = random.sample(all_words, min(7, len(all_words)))  # Select 7 random word
 import pygame
 
 # Words = ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
-PRESENTATION_TIME = 1000  # ms
+PRESENTATION_TIME = 1000  # ms , change to 500 when testing for quicker runs
+BREAK_TIME = 500 # ms - break between words, change to 50 or 0 when testing for quicker runs
 
 pygame.init()
 pygame.display.set_caption('Free Recall Experiment')
@@ -97,6 +97,11 @@ for word in Words:
 
     pygame.display.flip()
     pygame.time.delay(PRESENTATION_TIME)
+
+    # Add break - show blank screen
+    screen.fill((255, 255, 255))
+    pygame.display.flip()
+    pygame.time.delay(BREAK_TIME)  # Shows blank screen for 0.5 seconds
 
 # --- Collect typed input ---
 user_words_list = []  # Store individual words
