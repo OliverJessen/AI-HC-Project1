@@ -152,12 +152,13 @@ while collecting:
     screen.blit(input_surface, input_rect)
 
     # Render list of already entered words
+    # Render list of already entered words
     if user_words_list:
         words_text = "Words entered: " + ", ".join(user_words_list)
-        words_surface = button_font.render(words_text, True, (100, 100, 100))
+        # Just use small font always
+        words_surface = pygame.font.Font(None, 32).render(words_text, True, (100, 100, 100))
         words_rect = words_surface.get_rect(center=(640, 350))
         screen.blit(words_surface, words_rect)
-
 
     pygame.display.flip()
     clock.tick(30)
@@ -203,14 +204,27 @@ while Running:
         if event.type == pygame.QUIT:
             Running = False
     screen.fill((255, 255, 255))
-    word_list_surface = font.render('Words were: ' + ', '.join(Words), True, (0, 0, 0))
-    word_list_rect = word_list_surface.get_rect(center=(640, 250))
-    screen.blit(word_list_surface, word_list_rect)
-    final_surface = font.render('You typed: ' + user_input, True, (0, 0, 0))
-    final_rect = final_surface.get_rect(center=(640, 360))
+    
+# First line - "Words were:"
+    words_label = pygame.font.Font(None, 36).render('Words were:', True, (0, 0, 0))
+    words_label_rect = words_label.get_rect(center=(640, 200))
+    screen.blit(words_label, words_label_rect)
+    
+    # Second line - just the words
+    words_only = ', '.join(Words)
+    words_surface = pygame.font.Font(None, 36).render(words_only, True, (0, 0, 0))
+    words_rect = words_surface.get_rect(center=(640, 240))
+    screen.blit(words_surface, words_rect)
+    
+    # Your typed words
+    typed_text = 'You typed: ' + user_input
+    final_surface = pygame.font.Font(None, 36).render(typed_text, True, (0, 0, 0))
+    final_rect = final_surface.get_rect(center=(640, 320))
     screen.blit(final_surface, final_rect)
-    accuracy_surface = font.render(f'Accuracy: {accuracy:.2f}%', True, (0, 0, 0))
-    accuracy_rect = accuracy_surface.get_rect(center=(640, 470))
+    
+    # Accuracy
+    accuracy_surface = pygame.font.Font(None, 36).render(f'Accuracy: {accuracy:.2f}%', True, (0, 0, 0))
+    accuracy_rect = accuracy_surface.get_rect(center=(640, 400))
     screen.blit(accuracy_surface, accuracy_rect)
     pygame.display.flip()
 
@@ -220,7 +234,9 @@ os.makedirs(data_dir, exist_ok=True)
 csv_file = os.path.join(data_dir, 'free_recall_results.csv')
 
 # Split brugerens input til en liste
-user_words_list = user_input.strip().split()
+
+user_words_for_csv = user_input.strip().split()  # Use different variable name
+
 
 # Konverter til streng med klammeparenteser
 true_words_str = "[" + ", ".join(Words) + "]"
