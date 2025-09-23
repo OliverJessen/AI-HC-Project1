@@ -19,8 +19,6 @@ data_dir = os.path.join(this_dir, 'data')
 project_root = os.path.dirname(this_dir)  # Go up one level from recall_experiment
 words_csv_path = os.path.join(project_root, 'Data', 'memory_nouns_4plus.csv')
 
-
-
 # Load words from CSV
 def load_words_from_csv(csv_path):
     words = []
@@ -32,13 +30,12 @@ def load_words_from_csv(csv_path):
                 if row:  # Make sure row is not empty
                     words.append(row[0])  # Assuming words are in first column
     except FileNotFoundError:
-        print(f"Warning: Could not find {csv_path}, using default words")
-        return ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
+        print(f"Warning: Could not find {csv_path}")
     return words
 
 # Load words and select a random subset
 all_words = load_words_from_csv(words_csv_path)
-Words = random.sample(all_words, min(7, len(all_words)))  # Select 7 random words
+Words = random.sample(all_words, min(20, len(all_words)))  # Select 20 random words
 
 
 #-----------------------------------------------
