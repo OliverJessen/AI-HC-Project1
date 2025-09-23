@@ -5,7 +5,32 @@ import time
 import csv
 import os
 
-Experiment_condition = "normal"  # Options: "normal", "with_math", "long_pause"
+# EXPERIMENTAL CONDITION - Change this for different versions
+Experiment_condition = "with_math"  # Options: "no_math", "with_math", "long_pause"
+
+
+def generate_math_equations(num_equations=100):
+    equations = []
+    for _ in range(num_equations):
+        # Generate random numbers and operator combinations
+        num1 = random.randint(1, 20)
+        num2 = random.randint(1, 20)
+        num3 = random.randint(1, 10)
+        operators = random.choice([
+            ('+', '*'), ('*', '+'), 
+            ('*', '-'), ('+', '/'),
+            ('-', '*'), ('/', '+')
+        ])
+        
+        # Create equation string and calculate result
+        equation = f"{num1} {operators[0]} {num2} {operators[1]} {num3}"
+        result = eval(equation)  # Calculate actual result
+        
+        # Only keep equations with integer results
+        if isinstance(result, int) or result.is_integer():
+            equations.append((equation, int(result)))
+    
+    return equations
 
 # Main directory folder
 main_dir = os.getcwd()
@@ -49,7 +74,7 @@ PRESENTATION_TIME = 1000  # ms , change to 500 when testing for quicker runs
 BREAK_TIME = 500 # ms - break between words, change to 50 or 0 when testing for quicker runs
 
 pygame.init()
-pygame.display.set_caption('Free Recall Experiment')
+pygame.display.set_caption('Free Recall Experiment with Math')
 screen = pygame.display.set_mode((1280, 720))
 
 font = pygame.font.Font(None, 74)
@@ -124,6 +149,7 @@ for word in Words:
 #     pygame.display.flip()
 #     
 #     # Handle quit events
+
 #     for event in pygame.event.get():
 #         if event.type == pygame.QUIT:
 #             pygame.quit()
@@ -134,6 +160,60 @@ for word in Words:
 # pygame.display.flip()
 # pygame.time.delay(500)
 
+
+# Math distractor task------------
+math_equations = generate_math_equations()
+selected_equation = random.choice(math_equations)
+equation_prompt = f"Solve: {selected_equation[0]} = ?"
+math_input = ''
+solved = False
+
+while not solved:
+    screen.fill((255, 255, 255))
+    
+    # Render equation prompt
+    prompt_surface = font.render(equation_prompt, True, (0, 0, 0))
+    prompt_rect = prompt_surface.get_rect(center=(640, 250))
+    screen.blit(prompt_surface, prompt_rect)
+    
+    # Render current input
+    input_surface = font.render(math_input, True, (0, 0, 255))
+    input_rect = input_surface.get_rect(center=(640, 360))
+    screen.blit(input_surface, input_rect)
+    
+    # Add instruction
+    instruction_surface = button_font.render("Type answer and press Enter", True, (100, 100, 100))
+    instruction_rect = instruction_surface.get_rect(center=(640, 450))
+    screen.blit(instruction_surface, instruction_rect)
+    
+    pygame.display.flip()
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                try:
+                    if int(math_input) == selected_equation[1]:
+                        solved = True
+                    else:
+                        math_input = ''  # Clear input if wrong
+                except ValueError:
+                    math_input = ''  # Clear input if not a number
+            elif event.key == pygame.K_BACKSPACE:
+                math_input = math_input[:-1]
+            elif event.unicode.isnumeric() or event.unicode == '-':
+                math_input += event.unicode
+
+# Add a brief pause after solving
+screen.fill((255, 255, 255))
+correct_text = font.render("Correct!", True, (0, 150, 0))
+correct_rect = correct_text.get_rect(center=(640, 360))
+screen.blit(correct_text, correct_rect)
+pygame.display.flip()
+pygame.time.delay(1000)
+# ------------------------------------
 # --- Collect typed input ---
 user_words_list = []  # Store individual words
 current_word = ''
@@ -265,4 +345,3 @@ with open(csv_file, 'a', newline='', encoding='utf-8') as f:
     writer.writerow([test_id, Experiment_condition,true_words_str, user_words_str])
 
 print(f"Data gemt i {csv_file} (test {test_id})")
-
