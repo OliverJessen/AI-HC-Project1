@@ -1,10 +1,4 @@
-trial, presented_words, recalled_words
-1,"[cat, dog, car, pen, box, cup, tap]","[cat, dog, car, pen, dog, box, tap]"
-2,"[cat, dog, car, pen, box, cup, tap]","[cat, dog, tap]"
-3,"[cat, dog, car, pen, box, cup, tap]","[car, cat, pen]"
-4,"[lips, fish, mist, nail, note, gang, lake]","[lips, fish, note, gang, bear]"
-5,"[vest, chef, head, moon, tree, hair, coin]",[]
-6,"[city, salt, dove, door, lark, taco, carp]","[cat,, ,, dog,, fish,, nigger]"
-7,"[deer, bowl, cake, belt, cola, shoe, worm]",[]
-8,"[game, wrap, head, belt, sofa, fork, seat]",[]
-6,"[peak, fire, sofa, cave, shoe, crab, hand]","[crab, shoe, fire]"
+trial,presented_words,recalled_words
+1,"[reef, road, diva, duck, coin, gulf, cake, plum, pony, peak, seat, path, baby, lamb, rain]","[baby, lamb, rain, reef, diva, coin, duck]"
+2,"[hero, bull, tide, diva, lark, land, foot, snow, pony, corn, brat, maid, carp, milk, chin]","[carp, milk, chin, hero, diva, fish]"
+3,"[mine, dust, pita, chin, rice, yard, desk, fish, flag, face, nail, barn, wire, farm, shed]","[nail, barn, wire, farm, shed]"
