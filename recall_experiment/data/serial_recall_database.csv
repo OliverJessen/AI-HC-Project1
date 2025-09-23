@@ -1,1 +1,0 @@
-participant_id, session_id, age, sex, handedness, trial_num, condition, list_id, list_order, item_position, item_word, item_onset_ms, item_offset_ms, recall_response, response_time_ms, response_position (if serial), correct_binary, timestamp
