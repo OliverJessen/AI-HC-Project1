@@ -35,7 +35,7 @@ def load_words_from_csv(csv_path):
 
 # Load words and select a random subset
 all_words = load_words_from_csv(words_csv_path)
-Words = random.sample(all_words, min(20, len(all_words)))  # Select 20 random words
+Words = random.sample(all_words, min(15, len(all_words)))  # Select 15 random words
 
 
 #-----------------------------------------------
