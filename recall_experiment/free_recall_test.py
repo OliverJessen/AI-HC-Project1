@@ -14,15 +14,38 @@ this_dir = os.path.dirname(__file__)
 # Data folder path
 data_dir = os.path.join(this_dir, 'data')
 
-# print(main_dir)
-# print(this_dir)
-# print(data_dir)
+
+# Path to the CSV file with words (relative to project root)
+project_root = os.path.dirname(this_dir)  # Go up one level from recall_experiment
+words_csv_path = os.path.join(project_root, 'Data', 'memory_nouns_4plus.csv')
+
+
+
+# Load words from CSV
+def load_words_from_csv(csv_path):
+    words = []
+    try:
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            next(reader, None)  # Skip header if present
+            for row in reader:
+                if row:  # Make sure row is not empty
+                    words.append(row[0])  # Assuming words are in first column
+    except FileNotFoundError:
+        print(f"Warning: Could not find {csv_path}, using default words")
+        return ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
+    return words
+
+# Load words and select a random subset
+all_words = load_words_from_csv(words_csv_path)
+Words = random.sample(all_words, min(7, len(all_words)))  # Select 7 random words
+
 
 #-----------------------------------------------
 
 import pygame
 
-Words = ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
+# Words = ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
 PRESENTATION_TIME = 1000  # ms
 
 pygame.init()
