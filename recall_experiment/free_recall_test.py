@@ -46,8 +46,8 @@ Words = random.sample(all_words, min(7, len(all_words)))  # Select 7 random word
 import pygame
 
 # Words = ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
-PRESENTATION_TIME = 1000  # ms
-BREAK_TIME = 500  # ms - break between words
+PRESENTATION_TIME = 1000  # ms , change to 500 when testing for quicker runs
+BREAK_TIME = 500 # ms - break between words, change to 50 or 0 when testing for quicker runs
 
 pygame.init()
 pygame.display.set_caption('Free Recall Experiment')
