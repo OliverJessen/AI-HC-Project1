@@ -47,6 +47,7 @@ import pygame
 
 # Words = ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
 PRESENTATION_TIME = 1000  # ms
+BREAK_TIME = 500  # ms - break between words
 
 pygame.init()
 pygame.display.set_caption('Free Recall Experiment')
@@ -99,6 +100,11 @@ for word in Words:
 
     pygame.display.flip()
     pygame.time.delay(PRESENTATION_TIME)
+
+    # Add break - show blank screen
+    screen.fill((255, 255, 255))
+    pygame.display.flip()
+    pygame.time.delay(BREAK_TIME)  # Shows blank screen for 0.5 seconds
 
 # --- Collect typed input ---
 user_input = ''
