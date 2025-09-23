@@ -5,6 +5,29 @@ import time
 import csv
 import os
 
+def generate_math_equations(num_equations=100):
+    equations = []
+    for _ in range(num_equations):
+        # Generate random numbers and operator combinations
+        num1 = random.randint(1, 20)
+        num2 = random.randint(1, 20)
+        num3 = random.randint(1, 10)
+        operators = random.choice([
+            ('+', '*'), ('*', '+'), 
+            ('*', '-'), ('+', '/'),
+            ('-', '*'), ('/', '+')
+        ])
+        
+        # Create equation string and calculate result
+        equation = f"{num1} {operators[0]} {num2} {operators[1]} {num3}"
+        result = eval(equation)  # Calculate actual result
+        
+        # Only keep equations with integer results
+        if isinstance(result, int) or result.is_integer():
+            equations.append((equation, int(result)))
+    
+    return equations
+
 # Main directory folder
 main_dir = os.getcwd()
 
@@ -103,34 +126,49 @@ for word in Words:
     pygame.display.flip()
     pygame.time.delay(BREAK_TIME)  # Shows blank screen for 0.5 seconds
 
-# Add countdown break
-# COUNTDOWN_TIME = 10  # 10 seconds break
-# start_time = time.time()
-#
-# while time.time() - start_time < COUNTDOWN_TIME:
-#     screen.fill((255, 255, 255))
-#     
-#     # Calculate remaining time
-#     remaining = int(COUNTDOWN_TIME - (time.time() - start_time))
-#     
-#     # Render countdown
-#     countdown_text = f"Break time: {remaining} seconds"
-#     countdown_surface = font.render(countdown_text, True, (0, 0, 0))
-#     countdown_rect = countdown_surface.get_rect(center=(640, 360))
-#     screen.blit(countdown_surface, countdown_rect)
-#     
-#     pygame.display.flip()
-#     
-#     # Handle quit events
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             pygame.quit()
-#             sys.exit()
-#
-# # Add brief pause after countdown
-# screen.fill((255, 255, 255))
-# pygame.display.flip()
-# pygame.time.delay(500)
+math_equations = generate_math_equations()
+selected_equation = random.choice(math_equations)
+equation_prompt = f"Solve: {selected_equation[0]} = ?"
+math_input = ''
+solved = False
+
+while not solved:
+    screen.fill((255, 255, 255))
+    
+    # Render equation prompt
+    prompt_surface = font.render(equation_prompt, True, (0, 0, 0))
+    prompt_rect = prompt_surface.get_rect(center=(640, 250))
+    screen.blit(prompt_surface, prompt_rect)
+    
+    # Render current input
+    input_surface = font.render(math_input, True, (0, 0, 255))
+    input_rect = input_surface.get_rect(center=(640, 360))
+    screen.blit(input_surface, input_rect)
+    
+    pygame.display.flip()
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                try:
+                    if int(math_input) == selected_equation[1]:
+                        solved = True
+                    else:
+                        math_input = ''  # Clear input if wrong
+                except ValueError:
+                    math_input = ''  # Clear input if not a number
+            elif event.key == pygame.K_BACKSPACE:
+                math_input = math_input[:-1]
+            elif event.unicode.isnumeric() or event.unicode == '-':
+                math_input += event.unicode
+
+# Add a brief pause after solving
+screen.fill((255, 255, 255))
+pygame.display.flip()
+pygame.time.delay(500)
 
 # --- Collect typed input ---
 user_words_list = []  # Store individual words
