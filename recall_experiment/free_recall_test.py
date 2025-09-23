@@ -28,8 +28,37 @@ PRESENTATION_TIME = 1000  # ms
 pygame.init()
 pygame.display.set_caption('Free Recall Experiment')
 screen = pygame.display.set_mode((1280, 720))
+
 font = pygame.font.Font(None, 74)
+button_font = pygame.font.Font(None, 48)  # Add this line
 clock = pygame.time.Clock()
+# --- Start Screen with Button ---
+waiting_for_start = True
+
+while waiting_for_start:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                waiting_for_start = False
+
+    screen.fill((255, 255, 255))  # Clear screen
+    
+    # Title
+    title_text = font.render('Free Recall Experiment', True, (0, 0, 0))
+    title_rect = title_text.get_rect(center=(640, 300))
+    screen.blit(title_text, title_rect)
+    
+    # Instructions
+    instruction_text = button_font.render('Press SPACE to start', True, (100, 100, 100))
+    instruction_rect = instruction_text.get_rect(center=(640, 400))
+    screen.blit(instruction_text, instruction_rect)
+    
+    pygame.display.flip()
+    clock.tick(30)
+
 
 # Present words once
 for word in Words:
