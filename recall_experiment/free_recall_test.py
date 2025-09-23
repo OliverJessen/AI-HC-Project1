@@ -39,7 +39,7 @@ for word in Words:
             exit()
 
     screen.fill((255, 255, 255))  # Clear screen
-    pygame.draw.circle(screen, (0, 0, 255), (640, 360), 50)  # optional
+    # pygame.draw.circle(screen, (0, 0, 255), (640, 360), 50)  # optional
 
     text = font.render(word, True, (0, 0, 0))
     rect = text.get_rect(center=(640, 360))
