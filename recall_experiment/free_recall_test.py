@@ -19,8 +19,6 @@ data_dir = os.path.join(this_dir, 'data')
 project_root = os.path.dirname(this_dir)  # Go up one level from recall_experiment
 words_csv_path = os.path.join(project_root, 'Data', 'memory_nouns_4plus.csv')
 
-
-
 # Load words from CSV
 def load_words_from_csv(csv_path):
     words = []
@@ -101,7 +99,8 @@ for word in Words:
     pygame.time.delay(PRESENTATION_TIME)
 
 # --- Collect typed input ---
-user_input = ''
+user_words_list = []  # Store individual words
+current_word = ''
 prompt = 'Type your recall and press Enter when done:'
 
 collecting = True
@@ -110,13 +109,21 @@ while collecting:
 
     # Render prompt
     prompt_surface = font.render(prompt, True, (0, 0, 0))
-    prompt_rect = prompt_surface.get_rect(center=(640, 250))
+    prompt_rect = prompt_surface.get_rect(center=(640, 150))
     screen.blit(prompt_surface, prompt_rect)
 
     # Render current input
-    input_surface = font.render(user_input, True, (0, 0, 255))
-    input_rect = input_surface.get_rect(center=(640, 360))
+    input_surface = font.render(current_word, True, (0, 0, 255))
+    input_rect = input_surface.get_rect(center=(640, 250))
     screen.blit(input_surface, input_rect)
+
+    # Render list of already entered words
+    if user_words_list:
+        words_text = "Words entered: " + ", ".join(user_words_list)
+        words_surface = button_font.render(words_text, True, (100, 100, 100))
+        words_rect = words_surface.get_rect(center=(640, 350))
+        screen.blit(words_surface, words_rect)
+
 
     pygame.display.flip()
     clock.tick(30)
@@ -126,12 +133,18 @@ while collecting:
             collecting = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
-                collecting = False  # finish input
+                if current_word.strip():  # If there's a word entered
+                    user_words_list.append(current_word.strip())
+                    current_word = ''  # Clear for next word
+                else:  # If empty input, finish
+                    collecting = False
             elif event.key == pygame.K_BACKSPACE:
-                user_input = user_input[:-1]
+                current_word = current_word[:-1]
             else:
-                user_input += event.unicode  # append typed character
+                current_word += event.unicode  # append typed character
 
+# Convert back to space-separated string for compatibility with existing code
+user_input = ' '.join(user_words_list)
 # --- final output ---
 
 # compare with original list

@@ -3,3 +3,7 @@ trial, presented_words, recalled_words
 2,"[cat, dog, car, pen, box, cup, tap]","[cat, dog, tap]"
 3,"[cat, dog, car, pen, box, cup, tap]","[car, cat, pen]"
 4,"[lips, fish, mist, nail, note, gang, lake]","[lips, fish, note, gang, bear]"
+5,"[hand, chin, bike, pita, nerd, mama, seal]","[mama, seal, nerd]"
+6,"[bowl, chip, skin, road, flag, salt, crab]",[whd]
+7,"[mask, lamp, farm, sofa, duck, pipe, dust]",[landl]
+8,"[mole, cola, rock, baby, kite, peer, chip]","[mole, cola, rock, pipe]"
