@@ -1,0 +1,6 @@
+test,original_sequence,user_sequence,position_accuracy,item_accuracy,correct_positions
+1,ITAMDPR,I,14.29,14.29,1
+2,SKEPCQY,ILDMEDS,0.0,28.57,0
+3,XJVFWMQ,XJV,42.86,42.86,3
+4,HICEGAO,HDASD
+5,KEFQGUP,KEFQGUB
