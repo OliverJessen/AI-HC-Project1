@@ -5,8 +5,7 @@ import time
 import csv
 import os
 
-# EXPERIMENTAL CONDITION - Change this for different versions
-Experiment_condition = "math"  # Options: "no_math", "with_math", "long_pause"
+Experiment_condition = "math"  
 
 
 def generate_math_equations(num_equations=100):
@@ -38,13 +37,12 @@ main_dir = os.getcwd()
 # Current directory folder
 this_dir = os.path.dirname(__file__)
 
-# Data folder path
-data_dir = os.path.join(this_dir, 'data')
-
-
 # Path to the CSV file with words (relative to project root)
-project_root = os.path.dirname(this_dir)  # Go up one level from recall_experiment
+project_root = os.path.dirname(this_dir)  # Go up one level from Free Recall
 words_csv_path = os.path.join(project_root, 'Data', 'memory_nouns_4plus.csv')
+
+# Data folder path for output
+data_dir = os.path.join(project_root, 'Experiment_Output')
 
 # Load words from CSV
 def load_words_from_csv(csv_path):

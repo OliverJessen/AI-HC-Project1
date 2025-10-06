@@ -13,13 +13,12 @@ main_dir = os.getcwd()
 # Current directory folder
 this_dir = os.path.dirname(__file__)
 
-# Data folder path
-data_dir = os.path.join(this_dir, 'data')
-
-
 # Path to the CSV file with words (relative to project root)
-project_root = os.path.dirname(this_dir)  # Go up one level from recall_experiment
+project_root = os.path.dirname(this_dir)  # Go up one level from Free Recall
 words_csv_path = os.path.join(project_root, 'Data', 'memory_nouns_4plus.csv')
+
+# Data folder path for output
+data_dir = os.path.join(project_root, 'Experiment_Output')
 
 # Load words from CSV
 def load_words_from_csv(csv_path):
@@ -104,35 +103,6 @@ for word in Words:
     screen.fill((255, 255, 255))
     pygame.display.flip()
     pygame.time.delay(BREAK_TIME)  # Shows blank screen for 0.5 seconds
-
-# Add countdown break
-# COUNTDOWN_TIME = 10  # 10 seconds break
-# start_time = time.time()
-#
-# while time.time() - start_time < COUNTDOWN_TIME:
-#     screen.fill((255, 255, 255))
-#     
-#     # Calculate remaining time
-#     remaining = int(COUNTDOWN_TIME - (time.time() - start_time))
-#     
-#     # Render countdown
-#     countdown_text = f"Break time: {remaining} seconds"
-#     countdown_surface = font.render(countdown_text, True, (0, 0, 0))
-#     countdown_rect = countdown_surface.get_rect(center=(640, 360))
-#     screen.blit(countdown_surface, countdown_rect)
-#     
-#     pygame.display.flip()
-#     
-#     # Handle quit events
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             pygame.quit()
-#             sys.exit()
-#
-# # Add brief pause after countdown
-# screen.fill((255, 255, 255))
-# pygame.display.flip()
-# pygame.time.delay(500)
 
 # --- Collect typed input ---
 user_words_list = []  # Store individual words
