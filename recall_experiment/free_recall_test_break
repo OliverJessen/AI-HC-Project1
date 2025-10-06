@@ -45,8 +45,8 @@ Words = random.sample(all_words, min(15, len(all_words)))  # Select 15 random wo
 import pygame
 
 # Words = ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
-PRESENTATION_TIME = 1000  # ms , change to 500 when testing for quicker runs
-BREAK_TIME = 500 # ms - break between words, change to 50 or 0 when testing for quicker runs
+PRESENTATION_TIME = 1000
+BREAK_TIME = 500
 
 pygame.init()
 pygame.display.set_caption('Free Recall Experiment')
@@ -104,6 +104,35 @@ for word in Words:
     screen.fill((255, 255, 255))
     pygame.display.flip()
     pygame.time.delay(BREAK_TIME)  # Shows blank screen for 0.5 seconds
+
+# Add countdown break
+COUNTDOWN_TIME = 10  # 10 seconds break
+start_time = time.time()
+
+while time.time() - start_time < COUNTDOWN_TIME:
+    screen.fill((255, 255, 255))
+    
+    # Calculate remaining time
+    remaining = int(COUNTDOWN_TIME - (time.time() - start_time))
+    
+    # Render countdown
+    countdown_text = f"Break time: {remaining} seconds"
+    countdown_surface = font.render(countdown_text, True, (0, 0, 0))
+    countdown_rect = countdown_surface.get_rect(center=(640, 360))
+    screen.blit(countdown_surface, countdown_rect)
+    
+    pygame.display.flip()
+    
+    # Handle quit events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+# Add brief pause after countdown
+screen.fill((255, 255, 255))
+pygame.display.flip()
+pygame.time.delay(500)
 
 # --- Collect typed input ---
 user_words_list = []  # Store individual words
