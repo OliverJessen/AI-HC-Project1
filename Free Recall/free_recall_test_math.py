@@ -6,7 +6,7 @@ import csv
 import os
 
 # EXPERIMENTAL CONDITION - Change this for different versions
-Experiment_condition = "with_math"  # Options: "no_math", "with_math", "long_pause"
+Experiment_condition = "math"  # Options: "no_math", "with_math", "long_pause"
 
 
 def generate_math_equations(num_equations=100):
