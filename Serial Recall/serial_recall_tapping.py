@@ -6,7 +6,7 @@ import csv
 import os
 
 # Experimental condition
-experiment_condition = "normal"
+experiment_condition = "tapping"
 
 # Main directory folder
 main_dir = os.getcwd()
@@ -35,11 +35,12 @@ PRESENTATION_TIME = 1000  # ms per letter
 BREAK_TIME = 500 # ms - break between letters
 
 pygame.init()
-pygame.display.set_caption('Serial Recall Experiment')
+pygame.display.set_caption('Serial Recall Experiment - Finger Tapping')
 screen = pygame.display.set_mode((1280, 720))
 
 font = pygame.font.Font(None, 74)
 button_font = pygame.font.Font(None, 48)
+small_font = pygame.font.Font(None, 32)
 clock = pygame.time.Clock()
 
 # --- Start Screen with Button ---
@@ -57,22 +58,59 @@ while waiting_for_start:
     screen.fill((255, 255, 255))  # Clear screen
     
     # Title
-    title_text = font.render('Serial Recall Experiment', True, (0, 0, 0))
-    title_rect = title_text.get_rect(center=(640, 250))
+    title_text = font.render('Serial Recall - Finger Tapping', True, (0, 0, 0))
+    title_rect = title_text.get_rect(center=(640, 200))
     screen.blit(title_text, title_rect)
     
     # Instructions
     instruction_text = button_font.render('You will see 7 letters in sequence.', True, (100, 100, 100))
-    instruction_rect = instruction_text.get_rect(center=(640, 350))
+    instruction_rect = instruction_text.get_rect(center=(640, 280))
     screen.blit(instruction_text, instruction_rect)
     
     instruction_text2 = button_font.render('Type them back in the SAME ORDER.', True, (100, 100, 100))
-    instruction_rect2 = instruction_text2.get_rect(center=(640, 390))
+    instruction_rect2 = instruction_text2.get_rect(center=(640, 320))
     screen.blit(instruction_text2, instruction_rect2)
     
+    # Finger tapping instruction
+    tapping_text1 = button_font.render('While watching and typing, continuously tap', True, (100, 100, 100))
+    tapping_rect1 = tapping_text1.get_rect(center=(640, 380))
+    screen.blit(tapping_text1, tapping_rect1)
+    
+    tapping_text2 = button_font.render('fingers on table', True, (100, 100, 100))
+    tapping_rect2 = tapping_text2.get_rect(center=(640, 420))
+    screen.blit(tapping_text2, tapping_rect2)
+    
     start_text = button_font.render('Press SPACE to start', True, (0, 0, 0))
-    start_rect = start_text.get_rect(center=(640, 450))
+    start_rect = start_text.get_rect(center=(640, 480))
     screen.blit(start_text, start_rect)
+    
+    pygame.display.flip()
+    clock.tick(30)
+
+# --- Reminder screen before sequence starts ---
+reminder_time = 3000  # 3 seconds
+start_time = pygame.time.get_ticks()
+
+while pygame.time.get_ticks() - start_time < reminder_time:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+    
+    screen.fill((255, 255, 255))
+    
+    reminder_text1 = font.render('Get ready', True, (100, 100, 100))
+    reminder_rect1 = reminder_text1.get_rect(center=(640, 300))
+    screen.blit(reminder_text1, reminder_rect1)
+    
+    reminder_text2 = button_font.render('Start finger tapping NOW', True, (100, 100, 100))
+    reminder_rect2 = reminder_text2.get_rect(center=(640, 360))
+    screen.blit(reminder_text2, reminder_rect2)
+    
+    time_left = (reminder_time - (pygame.time.get_ticks() - start_time)) // 1000 + 1
+    countdown_text = font.render(str(time_left), True, (0, 0, 0))
+    countdown_rect = countdown_text.get_rect(center=(640, 440))
+    screen.blit(countdown_text, countdown_rect)
     
     pygame.display.flip()
     clock.tick(30)
@@ -85,9 +123,10 @@ for letter in Letters:
             exit()
 
     screen.fill((255, 255, 255))  # Clear screen
-
+    
+    # Show letter
     text = font.render(letter, True, (0, 0, 0))
-    rect = text.get_rect(center=(640, 360))
+    rect = text.get_rect(center=(640, 300))
     screen.blit(text, rect)
 
     pygame.display.flip()
@@ -108,7 +147,7 @@ while collecting:
 
     # Render prompt
     prompt_surface = button_font.render(prompt, True, (0, 0, 0))
-    prompt_rect = prompt_surface.get_rect(center=(640, 200))
+    prompt_rect = prompt_surface.get_rect(center=(640, 150))
     screen.blit(prompt_surface, prompt_rect)
 
     # Render current input with spacing for readability
@@ -193,6 +232,11 @@ while Running:
     
     screen.fill((255, 255, 255))
     
+    # Condition label
+    condition_label = small_font.render(f'Condition: {experiment_condition.title()}', True, (100, 100, 100))
+    condition_rect = condition_label.get_rect(center=(640, 100))
+    screen.blit(condition_label, condition_rect)
+    
     # Original sequence
     original_label = pygame.font.Font(None, 36).render('Original sequence:', True, (0, 0, 0))
     original_label_rect = original_label.get_rect(center=(640, 150))
@@ -241,7 +285,7 @@ test_id = num_runs + 1
 original_sequence_str = ''.join(Letters)
 user_sequence_str = user_sequence.upper()
 
-# Write to CSV
+# Write to CSV - add condition column
 file_exists_and_has_content = os.path.exists(csv_file) and os.path.getsize(csv_file) > 0
 
 with open(csv_file, 'a', newline='', encoding='utf-8') as f:
