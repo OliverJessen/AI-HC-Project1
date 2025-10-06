@@ -14,8 +14,9 @@ main_dir = os.getcwd()
 # Current directory folder
 this_dir = os.path.dirname(__file__)
 
-# Data folder path
-data_dir = os.path.join(this_dir, 'data')
+# Data folder path - save to Experiment_Output
+project_root = os.path.dirname(this_dir)  # Go up one level from Serial Recall
+data_dir = os.path.join(project_root, 'Experiment_Output')
 
 # Generate random sequence of 7 letters
 def generate_letter_sequence(length=7):
@@ -233,7 +234,7 @@ while Running:
     screen.fill((255, 255, 255))
     
     # Condition label
-    condition_label = small_font.render(f'Condition: {experiment_condition.title()}', True, (255, 0, 0))
+    condition_label = small_font.render(f'Condition: {experiment_condition.title()}', True, (100, 100, 100))
     condition_rect = condition_label.get_rect(center=(640, 100))
     screen.blit(condition_label, condition_rect)
     
@@ -281,18 +282,19 @@ else:
 
 test_id = num_runs + 1
 
-# Convert sequences to strings
-original_sequence_str = ''.join(Letters)
-user_sequence_str = user_sequence.upper()
+# Convert sequences to strings with spaces for compatibility with free recall format
+# Convert sequences to strings with brackets and commas to match free recall format
+original_sequence_str = "[" + ", ".join(Letters) + "]"
+user_sequence_str = "[" + ", ".join(list(user_sequence.upper())) + "]" if user_sequence else "[]"
 
-# Write to CSV - add condition column
+# Write to CSV with same format as free recall
 file_exists_and_has_content = os.path.exists(csv_file) and os.path.getsize(csv_file) > 0
 
 with open(csv_file, 'a', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
 
     if not file_exists_and_has_content:
-        writer.writerow(['test', 'condition', 'original_sequence', 'user_sequence'])
+        writer.writerow(['trial', ' condition', ' presented_words', ' recalled_words'])
 
     writer.writerow([test_id, experiment_condition, original_sequence_str, user_sequence_str])
 

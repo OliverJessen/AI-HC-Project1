@@ -1,6 +1,2 @@
-test,original_sequence,user_sequence
-1,ITAMDPR,I
-2,SKEPCQY,ILDMEDS
-3,XJVFWMQ,XJV
-4,HICEGAO,HDASD
-5,KEFQGUP,KEFQGUB
+trial, condition, presented_words, recalled_words
+1,normal,"[K, U, D, F, G, H, V]","[K, U, F, G, H, V, D]"
