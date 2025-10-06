@@ -1,12 +1,1 @@
 trial, condition, presented_words, recalled_words
-1,normal,"[reef, road, diva, duck, coin, gulf, cake, plum, pony, peak, seat, path, baby, lamb, rain]","[baby, lamb, rain, reef, diva, coin, duck]"
-2,normal,"[hero, bull, tide, diva, lark, land, foot, snow, pony, corn, brat, maid, carp, milk, chin]","[carp, milk, chin, hero, diva, fish]"
-3,normal,"[mine, dust, pita, chin, rice, yard, desk, fish, flag, face, nail, barn, wire, farm, shed]","[nail, barn, wire, farm, shed]"
-4,normal,"[flag, lord, nail, wrap, fork, drum, crew, goat, clip, road, game, tuna, card, king, fish]","[flag, lord, king, tuna, fish, clip, road, fork]"
-5,normal,"[mama, belt, pipe, beef, lake, mine, book, shoe, skin, dust, shop, hare, hair, park, gnat]","[mama, belt, beef, lake, skin, hair, shoe, park, shop]"
-6,normal,"[beer, mole, town, face, kite, lock, mist, bike, seat, frog, shop, crew, wind, tide, girl]","[beer, lock]"
-7,normal,"[boss, tree, back, neck, book, tuna, clam, mine, film, note, mole, dock, rain, deer, dust]","[boss, tree, back, neck, book, dock, clam, mole, rain, deer]"
-8,normal,"[pals, meat, ball, crab, sofa, lord, flag, corn, cave, frog, coat, nail, rock, fork, reef]",[test]
-9,with_math,"[mine, lion, plum, wood, dust, lark, card, bear, sock, gulf, back, crab, meat, coat, clan]",[test]
-10,normal,"[chip, door, corn, deer, dune, wolf, salt, pony, wood, head, bowl, vest, cake, twin, peer]","[dog, penis, nigger, fat cock, deez nuts, oggba booga]"
-11,normal,"[path, guru, plum, lamp, sock, tree, mate, cart, lake, mule, lord, milk, team, bear, bull]",[]

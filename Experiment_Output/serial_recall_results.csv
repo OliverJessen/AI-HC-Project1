@@ -1,2 +1,3 @@
 trial, condition, presented_words, recalled_words
 1,normal,"[K, U, D, F, G, H, V]","[K, U, F, G, H, V, D]"
+2,tapping,"[U, V, F, I, O, L, X]","[U, F, I, L, O, I]"
