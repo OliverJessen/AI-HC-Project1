@@ -1,1 +1,16 @@
 trial, condition, presented_words, recalled_words
+1,normal,"[Z, J, E, Q, G, T, V]",[Z, J, E, Q, G, T, V]
+2,normal,"[S, P, B, J, N, W, Q]","[S, P, B, J, N, Q, W]"
+3,normal,"[C, J, I, P, M, D, H]","[C, J, I, M, P, D, H]"
+4,normal,"[Y, O, W, Q, D, V, G]","[Y, O, W, Q, G]"
+5,normal,"[P, H, A, M, W, C, O]","[P, H, A, M, W, C, O]"
+6,suppression,"[B, A, V, E, T, Y, O]","[B, A, V, E, T, Y, O]"
+7,suppression,"[H, A, N, R, S, L, E]","[H, A, N, R, S, E]"
+8,suppression,"[J, M, A, Y, O, X, I]","[J, M, A, Y, Q, T, O]"
+9,suppression,"[Z, G, Q, N, I, S, L]","[Z, G, Q, N, I, L, S]"
+10,suppression,"[F, W, J, S, U, L, K]","[F, W, J, Z, Q, E]"
+11,tapping,"[S, X, U, P, L, Q, A]","[S, X, U, L, P, Q, A]"
+12,tapping,"[Q, D, S, Z, I, A, W]","[Q, D, S, Z, I, A, W]"
+13,tapping,"[Y, J, Z, N, R, P, Q]","[Y, J, Z, N, R, Q, P]"
+14,tapping,"[L, N, Z, J, X, P, H]","[L, N, Z, J, O, X, W]"
+15,tapping,"[Y, V, R, E, C, O, B]","[Y, V, R, E, C, O, P]"
