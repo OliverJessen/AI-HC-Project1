@@ -130,37 +130,6 @@ for word in Words:
     pygame.display.flip()
     pygame.time.delay(BREAK_TIME)  # Shows blank screen for 0.5 seconds
 
-# Add countdown break
-# COUNTDOWN_TIME = 10  # 10 seconds break
-# start_time = time.time()
-#
-# while time.time() - start_time < COUNTDOWN_TIME:
-#     screen.fill((255, 255, 255))
-#     
-#     # Calculate remaining time
-#     remaining = int(COUNTDOWN_TIME - (time.time() - start_time))
-#     
-#     # Render countdown
-#     countdown_text = f"Break time: {remaining} seconds"
-#     countdown_surface = font.render(countdown_text, True, (0, 0, 0))
-#     countdown_rect = countdown_surface.get_rect(center=(640, 360))
-#     screen.blit(countdown_surface, countdown_rect)
-#     
-#     pygame.display.flip()
-#     
-#     # Handle quit events
-
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             pygame.quit()
-#             sys.exit()
-#
-# # Add brief pause after countdown
-# screen.fill((255, 255, 255))
-# pygame.display.flip()
-# pygame.time.delay(500)
-
-
 # Math distractor task------------
 math_equations = generate_math_equations()
 selected_equation = random.choice(math_equations)
