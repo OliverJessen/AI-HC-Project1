@@ -5,7 +5,7 @@ import time
 import csv
 import os
 
-Experiment_condition = "normal"  # Options: "normal", "with_math", "long_pause"
+Experiment_condition = "normal"  
 
 # Main directory folder
 main_dir = os.getcwd()
@@ -18,7 +18,7 @@ data_dir = os.path.join(this_dir, 'data')
 
 
 # Path to the CSV file with words (relative to project root)
-project_root = os.path.dirname(this_dir)  # Go up one level from recall_experiment
+project_root = os.path.dirname(this_dir)  # Go up one level from Free Recall
 words_csv_path = os.path.join(project_root, 'Data', 'memory_nouns_4plus.csv')
 
 # Load words from CSV
