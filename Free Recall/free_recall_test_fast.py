@@ -16,9 +16,8 @@ this_dir = os.path.dirname(__file__)
 # Data folder path
 data_dir = os.path.join(this_dir, 'data')
 
-
-# Path to the CSV file with words (relative to project root)
-project_root = os.path.dirname(this_dir)  # Go up one level from Free Recall
+# Path to the CSV file with words 
+project_root = os.path.dirname(this_dir)
 words_csv_path = os.path.join(project_root, 'Data', 'memory_nouns_4plus.csv')
 
 # Load words from CSV
@@ -39,7 +38,6 @@ def load_words_from_csv(csv_path):
 all_words = load_words_from_csv(words_csv_path)
 Words = random.sample(all_words, min(15, len(all_words)))  # Select 15 random words
 
-
 #-----------------------------------------------
 
 import pygame
@@ -55,7 +53,9 @@ screen = pygame.display.set_mode((1280, 720))
 font = pygame.font.Font(None, 74)
 button_font = pygame.font.Font(None, 48)  # Add this line
 clock = pygame.time.Clock()
-# --- Start Screen with Button ---
+
+# Start Screen with Button
+
 waiting_for_start = True
 
 while waiting_for_start:
@@ -82,7 +82,6 @@ while waiting_for_start:
     pygame.display.flip()
     clock.tick(30)
 
-
 # Present words once
 for word in Words:
     for event in pygame.event.get():
@@ -105,7 +104,7 @@ for word in Words:
     pygame.display.flip()
     pygame.time.delay(BREAK_TIME)  # Shows blank screen for 0.5 seconds
 
-# --- Collect typed input ---
+# Collect typed input
 user_words_list = []  # Store individual words
 current_word = ''
 prompt = 'Type your recall and press Enter when done:'
@@ -124,7 +123,6 @@ while collecting:
     input_rect = input_surface.get_rect(center=(640, 250))
     screen.blit(input_surface, input_rect)
 
-    # Render list of already entered words
     # Render list of already entered words
     if user_words_list:
         words_text = "Words entered: " + ", ".join(user_words_list)
@@ -153,7 +151,8 @@ while collecting:
 
 # Convert back to space-separated string for compatibility with existing code
 user_input = ' '.join(user_words_list)
-# --- final output ---
+
+# Final output
 
 # compare with original list
 print('You typed:', user_input)
@@ -169,7 +168,6 @@ recalled_words = set(user_input.split())
 correct_recall = recalled_words.intersection(set(Words))
 accuracy = len(correct_recall) / len(Words) * 100
 print(f'Accuracy: {accuracy:.2f}%')
-
 
 Running = True
 while Running:
@@ -201,7 +199,7 @@ while Running:
     screen.blit(accuracy_surface, accuracy_rect)
     pygame.display.flip()
 
-# --- Save to CSV ---
+# Save to CSV
 
 os.makedirs(data_dir, exist_ok=True)
 csv_file = os.path.join(data_dir, 'free_recall_results.csv')
@@ -209,7 +207,6 @@ csv_file = os.path.join(data_dir, 'free_recall_results.csv')
 # Split brugerens input til en liste
 
 user_words_for_csv = user_input.strip().split()  # Use different variable name
-
 
 # Konverter til streng med klammeparenteser
 true_words_str = "[" + ", ".join(Words) + "]"
@@ -236,4 +233,3 @@ with open(csv_file, 'a', newline='', encoding='utf-8') as f:
     writer.writerow([test_id, Experiment_condition,true_words_str, user_words_str])
 
 print(f"Data gemt i {csv_file} (test {test_id})")
-
