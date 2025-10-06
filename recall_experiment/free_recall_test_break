@@ -5,7 +5,7 @@ import time
 import csv
 import os
 
-Experiment_condition = "normal"  # Options: "normal", "with_math", "long_pause"
+Experiment_condition = "break"
 
 # Main directory folder
 main_dir = os.getcwd()
