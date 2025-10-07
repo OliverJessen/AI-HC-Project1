@@ -94,7 +94,6 @@ trial, condition, presented_words, recalled_words
 93,chunking,"[4, K, W, T, F, W, W]","[4, K, W, T, F, W, W]"
 94,chunking,"[M, P, 4, M, S, A, I]","[M, P, 4, M, S, A, I]"
 95,chunking,"[I, R, L, T, L, D, R]","[I, R, L, T, L, D, R]"
-
 97,normal,"[Y, W, I, N, B, S, L]","[Y, W, I, N, B, S, L]"
 98,normal,"[B, L, R, S, K, M, G]","[B, L, R, S, K, M, G]"
 99,normal,"[V, G, W, O, N, M, I]","[V, G, W, O, N, M, I]"
@@ -175,3 +174,4 @@ trial, condition, presented_words, recalled_words
 174,chunking,"[R, I, P, C, E, O, H]","[R, I, P, C, E, O, H]"
 175,chunking,"[Z, I, P, P, N, G, B]","[Z, I, P, P, N, G, B]"
 176,chunking,"[P, R, N, G, L, D, I]","[P, R, N, G, L, D, I]"
+

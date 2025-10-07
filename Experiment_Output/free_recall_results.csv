@@ -250,7 +250,6 @@ trial, condition, presented_words, recalled_words
 249,math,"[face, clam, corn, bell, duck, swan, calf, shop, frog, boot, team, vest, mine, film, tuna]","[corn bell, duck shop toad boot vest mine film tuna, face clam]"
 250,math,"[pond, face, lips, beer, wave, king, back, roof, tool, hare, fern, game, hawk, boar, frog]",[lake face lips beer wave king back roof tool hare fern game goat frog bull]
 251,math,"[pipe, lips, dune, mask, toad, rain, soda, beef, hero, clam, face, snow, film, clip, soil]","[pipe lips dune mask toad rain soda beef hero face snow, film clip soil]"
-252,math,"[maid, road, twin, town, tuna, king, wolf, book, foot, drum, fern, shop, sofa, hero, clam]",[]
 253,math,"[chip, wire, note, carp, sofa, wife, lady, dock, mall, frog, neck, folk, deer, bush, rock]",[carp wife lady dock mall sofa hero]
 254,math,"[back, card, chip, reef, lamp, fern, bull, team, peer, farm, bush, salt, pear, carp, pals]",[bull team peer farm pear carp pals]
 255,math,"[coin, boar, tuna, path, drum, book, foot, wall, king, hand, milk, frog, head, hawk, lion]",[foot wall hand king toad head lion hawk]
@@ -258,7 +257,6 @@ trial, condition, presented_words, recalled_words
 257,math,"[coin, meat, dude, tree, milk, card, chin, yard, goat, wave, shoe, lake, mall, door, star]","[coin meat dude tree milk yard farm goat wave shoe lake, mall door star]"
 258,math,"[clam, plum, lake, chin, hero, rope, frog, lord, lady, boot, crew, cave, boar, hawk, clan]","[plum lake chin hero rope frog lord lady crew foot, cave hawk clan]"
 259,math,"[folk, wrap, tree, skin, hawk, girl, peer, wolf, dove, wood, fire, door, peak, back, seal]",[folk wrap tree skin hawk girl peer wolf dove wood fire door]
-260,math,"[coat, drum, hair, cart, vest, swan, shed, head, rice, tuna, kite, pita, seat, hawk, team]",[]
 261,math,"[sofa, head, hare, diva, isle, wind, twin, cart, crow, salt, baby, game, farm, hawk, ring]","[sofa head hare isle wind twin cart crow salt baby, game farm hawk ring]"
 262,math,"[pony, king, wire, tuna, card, rock, wall, bike, bell, ring, wave, drum, back, peer, moon]","[pony king wire tuna card rock, wave drum back peer]"
 263,math,"[isle, peak, shoe, bush, flag, stew, crow, kite, barn, bowl, hero, bull, ring, clan, nail]",[isle peak boot bush flag stew crow bowl hero bull ring]
