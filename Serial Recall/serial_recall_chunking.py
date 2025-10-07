@@ -110,8 +110,9 @@ for word in Words:
     pygame.time.delay(BREAK_TIME)
 
 # --- Collect typed input in sequence ---
-user_sequence = ''  # Store the sequence as entered
-prompt = 'Type the words in the same order (no spaces):'
+user_words = []       # store words instead of letters
+current_word = ""     # buffer for the word being typed
+prompt = 'Type the words in the same order (press SPACE after each word):'
 
 collecting = True
 while collecting:
@@ -122,14 +123,14 @@ while collecting:
     prompt_rect = prompt_surface.get_rect(center=(640, 200))
     screen.blit(prompt_surface, prompt_rect)
 
-    # Render current input with spacing for readability
-    display_sequence = ' '.join(user_sequence.upper())
+    # Render typed words so far
+    display_sequence = ' '.join(user_words + ([current_word] if current_word else []))
     input_surface = font.render(display_sequence, True, (0, 0, 255))
     input_rect = input_surface.get_rect(center=(640, 300))
     screen.blit(input_surface, input_rect)
-    
+
     # Show progress
-    progress_text = f"Word {len(user_sequence) + 1}/7" if len(user_sequence) < 7 else "Press Enter to finish"
+    progress_text = f"Word {len(user_words) + 1}/7" if len(user_words) < 7 else "Press Enter to finish"
     progress_surface = pygame.font.Font(None, 32).render(progress_text, True, (100, 100, 100))
     progress_rect = progress_surface.get_rect(center=(640, 400))
     screen.blit(progress_surface, progress_rect)
@@ -142,58 +143,64 @@ while collecting:
             collecting = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
-                collecting = False  # Finish when Enter is pressed
+                # Add last word and stop
+                if current_word:
+                    user_words.append(current_word)
+                collecting = False
+            elif event.key == pygame.K_SPACE:
+                # Word finished → add to list
+                if current_word:
+                    user_words.append(current_word)
+                    current_word = ""
             elif event.key == pygame.K_BACKSPACE:
-                user_sequence = user_sequence[:-1]
-            elif len(user_sequence) < 7 and event.unicode.isalpha():
-                user_sequence += event.unicode.upper()
-
-# Convert to list for analysis
-user_letters = list(user_sequence.upper())
+                current_word = current_word[:-1]
+            elif event.unicode.isalpha():
+                current_word += event.unicode()  # append typed character
 
 # --- Analysis ---
-print('You typed:', user_sequence.upper())
-print('Original sequence:', ''.join(Words))
+print('You typed:', user_words)
+print('Original sequence:', Words)
 
 # Position-by-position analysis
 correct_positions = 0
 position_analysis = []
 
-for i in range(max(len(Words), len(user_letters))):
-    if i < len(Words) and i < len(user_letters):
-        correct = Words[i] == user_letters[i]
+for i in range(max(len(Words), len(user_words))):
+    if i < len(Words) and i < len(user_words):
+        correct = Words[i].upper() == user_words[i].upper()
         if correct:
             correct_positions += 1
         position_analysis.append({
             'position': i+1,
-            'correct_letter': Words[i] if i < len(Words) else '',
-            'user_letter': user_letters[i] if i < len(user_letters) else '',
+            'correct_word': Words[i],
+            'user_word': user_words[i],
             'correct': correct
         })
-        print(f'Position {i+1}: {Words[i] if i < len(Words) else "?"} vs {user_letters[i] if i < len(user_letters) else "?"} - {"✓" if correct else "✗"}')
+        print(f'Position {i+1}: {Words[i]} vs {user_words[i]} - {"✓" if correct else "✗"}')
     elif i < len(Words):
         position_analysis.append({
             'position': i+1,
-            'correct_letter': Words[i],
-            'user_letter': '',
+            'correct_word': Words[i],
+            'user_word': '',
             'correct': False
         })
         print(f'Position {i+1}: {Words[i]} vs (missing) - ✗')
     else:
         position_analysis.append({
             'position': i+1,
-            'correct_letter': '',
-            'user_letter': user_letters[i],
+            'correct_word': '',
+            'user_word': user_words[i],
             'correct': False
         })
-        print(f'Position {i+1}: (extra) vs {user_letters[i]} - ✗')
+        print(f'Position {i+1}: (extra) vs {user_words[i]} - ✗')
 
 # Accuracy scores
 position_accuracy = correct_positions / len(Words) * 100 if Words else 0
-item_accuracy = len(set(user_letters).intersection(set(Words))) / len(Words) * 100 if Words else 0
+item_accuracy = len(set(user_words).intersection(set(Words))) / len(Words) * 100 if Words else 0
 
 print(f'Position Accuracy: {position_accuracy:.2f}% ({correct_positions}/{len(Words)} correct positions)')
-print(f'Item Accuracy: {item_accuracy:.2f}% (letters recalled regardless of position)')
+print(f'Item Accuracy: {item_accuracy:.2f}% (words recalled regardless of position)')
+
 
 # --- Display Results ---
 Running = True
@@ -219,7 +226,7 @@ while Running:
     user_label_rect = user_label.get_rect(center=(640, 250))
     screen.blit(user_label, user_label_rect)
     
-    user_display = ' '.join(user_letters) if user_letters else '(none)'
+    user_display = ' '.join(user_words) if user_words else '(none)'
     user_surface = pygame.font.Font(None, 48).render(user_display, True, (0, 0, 255))
     user_rect = user_surface.get_rect(center=(640, 290))
     screen.blit(user_surface, user_rect)
@@ -250,7 +257,7 @@ test_id = num_runs + 1
 
 # Convert sequences to strings with brackets and commas to match free recall format
 original_sequence_str = "[" + ", ".join(Words) + "]"
-user_sequence_str = "[" + ", ".join(list(user_sequence.upper())) + "]" if user_sequence else "[]"
+user_sequence_str = "[" + ", ".join(list(user_words.upper())) + "]" if user_words else "[]"
 
 # Write to CSV
 file_exists_and_has_content = os.path.exists(csv_file) and os.path.getsize(csv_file) > 0
