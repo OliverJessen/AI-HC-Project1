@@ -14,3 +14,4 @@ trial, condition, presented_words, recalled_words
 13,tapping,"[Y, J, Z, N, R, P, Q]","[Y, J, Z, N, R, Q, P]"
 14,tapping,"[L, N, Z, J, X, P, H]","[L, N, Z, J, O, X, W]"
 15,tapping,"[Y, V, R, E, C, O, B]","[Y, V, R, E, C, O, P]"
+16,chunking,"[G, L, H, F, P, C, D]","[G, L, H, F, P, C, D]"
