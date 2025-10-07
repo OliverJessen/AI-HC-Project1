@@ -40,9 +40,6 @@ Words = random.sample(all_words, min(15, len(all_words)))  # Select 15 random wo
 
 #-----------------------------------------------
 
-import pygame
-
-# Words = ['cat', 'dog', 'car', 'pen', 'box', 'cup', 'tap']
 PRESENTATION_TIME = 1000
 BREAK_TIME = 500
 
