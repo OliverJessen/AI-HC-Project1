@@ -155,7 +155,7 @@ while collecting:
             elif event.key == pygame.K_BACKSPACE:
                 current_word = current_word[:-1]
             elif event.unicode.isalpha():
-                current_word += event.unicode()  # append typed character
+                current_word += event.unicode  # append typed character as typed
 
 # --- Analysis ---
 print('You typed:', user_words)
@@ -257,7 +257,7 @@ test_id = num_runs + 1
 
 # Convert sequences to strings with brackets and commas to match free recall format
 original_sequence_str = "[" + ", ".join(Words) + "]"
-user_sequence_str = "[" + ", ".join(list(user_words.upper())) + "]" if user_words else "[]"
+user_sequence_str = "[" + ", ".join(user_words) + "]" if user_words else "[]"
 
 # Write to CSV
 file_exists_and_has_content = os.path.exists(csv_file) and os.path.getsize(csv_file) > 0

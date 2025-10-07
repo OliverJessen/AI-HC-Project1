@@ -15,3 +15,5 @@ trial, condition, presented_words, recalled_words
 14,tapping,"[L, N, Z, J, X, P, H]","[L, N, Z, J, O, X, W]"
 15,tapping,"[Y, V, R, E, C, O, B]","[Y, V, R, E, C, O, P]"
 16,chunking,"[roll, baby, toad, wrap, face, loaf, team]","[R, O, L, L, B, A, B]"
+17,chunking,"[rope, pond, bean, coat, boot, rock, hair]","[ROPE, POND, BEAN, COAT, BOOT, ROCK]"
+18,chunking,"[hawk, chef, bell, pals, hair, clam, face]","[hawk, bell, chef, hair]"
