@@ -15,7 +15,7 @@ main_dir = os.getcwd()
 this_dir = os.path.dirname(__file__)
 # Path to the CSV file with words
 project_root = os.path.dirname(this_dir)  # Go up one level from Free Recall
-words_csv_path = os.path.join(project_root, 'Data', 'memory_nouns_4plus.csv')
+words_csv_path = os.path.join(project_root, 'data', 'memory_nouns_4plus.csv')
 
 # Data folder path for output
 data_dir = os.path.join(project_root, 'Experiment_Output')
@@ -73,7 +73,7 @@ while waiting_for_start:
     screen.blit(title_text, title_rect)
     
     # Instructions
-    instruction_text = button_font.render('You will see 7 letters in sequence.', True, (100, 100, 100))
+    instruction_text = button_font.render('You will see 7 words in sequence.', True, (100, 100, 100))
     instruction_rect = instruction_text.get_rect(center=(640, 350))
     screen.blit(instruction_text, instruction_rect)
     
@@ -111,7 +111,7 @@ for word in Words:
 
 # --- Collect typed input in sequence ---
 user_sequence = ''  # Store the sequence as entered
-prompt = 'Type the letters in the same order (no spaces):'
+prompt = 'Type the words in the same order (no spaces):'
 
 collecting = True
 while collecting:
@@ -153,7 +153,7 @@ user_letters = list(user_sequence.upper())
 
 # --- Analysis ---
 print('You typed:', user_sequence.upper())
-print('Original sequence:', ''.join(Letters))
+print('Original sequence:', ''.join(Words))
 
 # Position-by-position analysis
 correct_positions = 0
