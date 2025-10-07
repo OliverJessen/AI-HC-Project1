@@ -179,3 +179,86 @@ trial, condition, presented_words, recalled_words
 158,break,"[lamb, kite, bike, shoe, lake, pear, folk, wolf, barn, deer, stew, boot, peer, card, land]","[barn, goat, kite, shoe, wolf, deer, lake, folk]"
 159,break,"[beer, sofa, boss, folk, rock, coat, girl, nerd, lion, rope, cake, bean, wind, corn, meat]","[beer, sofa, boss, rock, coat, girl, nerd]"
 160,break,"[clan, beef, gnat, gang, lock, soda, folk, rice, loaf, nerd, meat, twin, lark, dock, star]","[clan, beef, loaf, wine, folk, crew]"
+181,normal,"[roof, kite, fern, hawk, coat, sand, flag, soup, lips, seat, belt, town, carp, tide, lark]",[roof kite belt fern seat belt lark]
+182,normal,"[lamb, toad, chef, sand, film, desk, bush, neck, duck, wall, boss, yard, kite, rice, wrap]",[lamb chef wrap]
+183,normal,"[belt, girl, hare, coat, wind, foot, hand, pond, sofa, star, pals, game, shop, seal, book]",[girl sofa star pond belt book]
+184,normal,"[isle, milk, belt, barn, tree, guru, crab, bowl, gulf, fern, clam, game, back, shed, mall]",[clam fern mall book shell]
+185,normal,"[isle, city, frog, bowl, deer, port, reef, carp, maid, mist, vest, gang, meat, shop, dude]",[isle city frog bowl deer carp]
+186,normal,"[cave, rice, toad, seat, pond, cola, bean, nail, wave, goat, fire, loaf, lord, nose, sand]",[cave rice toad pond bean loaf fire]
+187,normal,"[wind, pita, beef, fire, belt, hand, shop, pony, road, boss, mist, rock, tent, book, lord]","[wind pita meat shop lord fire, book]"
+188,normal,"[deer, park, stew, card, pipe, seal, bowl, yard, mama, hair, sock, duck, coin, taco, pals]",[deer park stew card bowl coin]
+189,normal,"[peer, wall, hill, book, desk, chip, fish, note, mole, wire, tuna, hand, corn, dove, skin]",[peer wall fish chip bowl]
+190,normal,"[desk, lake, diva, meat, hawk, nose, rock, mule, taco, guru, pony, calf, crew, cake, wall]",[desk meat park hawk nose park]
+191,normal,"[isle, mist, tent, wave, clam, lamp, port, loaf, corn, hawk, mine, diva, mate, coin, note]","[isle mist tent clam wait port coin, guru]"
+192,normal,"[dove, wine, town, bowl, wave, milk, sofa, door, card, fork, loaf, wood, diva, swan, bean]",[dove wine town bowl door card diva]
+193,normal,"[lips, diva, pony, town, bean, deer, maid, vest, star, bear, stew, boss, boar, snow, meat]",[diva lips pony town star bear meat lips]
+194,normal,"[frog, bush, pony, port, park, nose, shed, dust, fish, shoe, mule, wall, dove, dock, lord]",[forg bush pony port fish shed dock lord]
+195,normal,"[soda, hare, king, hero, toad, lion, rock, dust, isle, crow, clam, lake, plum, shed, sofa]","[soda hare king clam, head]"
+196,normal,"[rock, book, pony, cart, fish, wind, hill, nail, snow, pita, bush, salt, stew, lady, brat]",[brat rock cold pony cart fish hill]
+197,normal,"[ball, wife, coin, barn, crab, pond, goat, star, peer, seal, mule, dove, seat, loaf, pear]",[ball wife grab goat star pond gold peer]
+198,normal,"[port, brat, bean, hair, team, boss, diva, clan, moon, chip, crow, lake, head, sand, chef]",[port brat diva head team club]
+199,normal,"[belt, flag, sand, rock, crow, lock, drum, goat, clan, face, mall, port, folk, reef, mule]",[boat club clam rock belt sand mule face]
+200,normal,"[mall, door, pals, back, ring, sand, lake, lion, corn, tree, foot, kite, wine, dove, vest]",[mall door ring kite]
+201,normal,"[town, soda, mate, clam, goat, drum, gulf, yard, wine, coin, gnat, hill, rock, back, lake]",[town surm mate clam gulf yard]
+202,fast,"[wood, mule, roll, coat, tool, star, guru, path, reef, crab, snow, tide, mole, lamp, hare]",[hare mmole guru gold cart]
+203,fast,"[chin, crew, belt, soda, girl, roll, reef, seal, twin, taco, book, door, goat, lord, shed]","[tin crew gold door golf seal yard, mule]"
+204,fast,"[mist, wall, town, hero, girl, coin, cola, mask, roof, chin, lady, lock, mule, belt, pals]",[mist town wall hero gold cart chin]
+205,fast,"[pony, star, lion, lake, land, ring, wind, crab, port, lark, wrap, team, goat, clam, isle]",[pony star lion lake clam team gold]
+206,fast,"[wine, back, hawk, cave, face, kite, lamp, lady, wife, bush, wave, roof, bowl, boar, shed]",[wine cave face lamb kite boar shed]
+207,fast,"[corn, crow, shed, goat, seal, chip, chin, girl, bell, head, folk, note, hand, kite, cart]",[corn crow seal chip fork card]
+208,fast,"[tent, rock, frog, face, fork, vest, flag, hero, stew, cola, card, sofa, nerd, snow, milk]",[tent card face soda coin gold]
+209,fast,"[chin, meat, hero, clip, papa, back, skin, twin, pipe, chef, wood, mask, wire, yard, dove]",[chin clip hero meat papa back wolf skin]
+210,fast,"[pond, head, skin, nerd, salt, seal, cave, hawk, king, bean, shop, ball, fern, chip, moon]",[pond head moon chip fern seal star]
+211,fast,"[coin, calf, guru, mask, papa, chip, mole, pear, carp, mall, wall, plum, skin, card, beer]",[card beer coin mask chip gold mall wall gulf]
+212,fast,"[gnat, dove, corn, fire, wood, loaf, bear, chef, king, gulf, peer, nerd, isle, crab, papa]",[gnat dove gold coin wire card gulf]
+213,fast,"[face, fire, swan, wolf, wave, duck, calf, king, port, hare, diva, path, isle, mule, chip]",[face coin wolf isle mule card king]
+214,fast,"[deer, rock, barn, dust, swan, wood, wall, fire, roll, brat, girl, clam, dune, neck, chip]",[deer rock barn dust swan roll clam]
+215,fast,"[chef, bull, rope, frog, city, neck, farm, mine, soil, film, path, tool, card, lady, nail]",[nail chef rock boil farm]
+216,fast,"[sock, wire, mate, barn, toad, note, gang, dust, road, peer, bull, town, shoe, wave, lamp]",[bool tool lamp suck mire clam road]
+217,fast,"[ring, path, beer, mall, papa, park, roof, belt, rain, seat, tool, soda, clam, crew, cart]",[soda clam crew cart ring papa wolf]
+218,fast,"[clip, pita, game, vest, drum, clan, seal, tent, isle, hero, guru, kite, hare, face, fire]",[face fire isle hero guru tent seal clam]
+219,fast,"[gang, crew, sock, drum, road, worm, boss, dust, pals, pipe, yard, town, isle, clam, salt]",[isle clam salt road boss town dock]
+220,fast,"[pond, peak, hawk, dune, gnat, hero, boar, bell, clan, wire, clam, wall, wrap, swan, beer]",[swan beer pond belt wall clam dear]
+221,fast,"[wall, path, reef, frog, mule, chef, lake, desk, pita, wolf, bull, boar, town, coat, moon]","[wall path rita desk boar town pitaa, pita, mule]"
+222,break,"[coin, loaf, drum, nose, desk, dune, papa, hand, farm, gulf, mole, path, rope, bear, cake]",[coin loft desk dune papa bear grow pear]
+223,break,"[vest, mist, hawk, tool, beer, beef, wrap, clip, sock, mama, salt, dust, foot, boot, lock]",[vest mist hawk tool beer beef clap wrip lock]
+224,break,"[chip, wrap, isle, chin, goat, mole, maid, soil, boss, guru, cola, hero, taco, rope, shed]",[chin wrap isle king soda hero]
+225,break,"[lord, hawk, coat, tent, beer, lips, neck, hero, film, fire, lark, fork, rope, wind, wife]",[lord hawk cold hope neck hero lips]
+226,break,"[chip, clam, crab, game, foot, soil, lord, book, coat, bowl, lion, mate, boot, hand, fork]",[chin clam crap boot foot soil goat foot hand]
+227,break,"[cart, folk, toad, corn, card, isle, milk, path, shed, fire, roll, tuna, bush, boss, wife]",[path fire cart card roll wife coin town]
+228,break,"[film, beer, deer, clam, salt, coin, tent, neck, bush, bell, tuna, maid, mall, chef, seat]",[film deer beer neck tent mall chef]
+229,break,"[soup, carp, ring, tent, milk, card, cart, chef, lake, lion, back, belt, gang, ball, mama]",[soup carp ring belt chef card]
+230,break,"[bell, dune, clan, gang, game, hawk, corn, mall, hair, lamb, beef, mask, cola, flag, chip]",[film dune gang mall goat chip flag cola]
+231,break,"[loaf, sock, twin, carp, hare, tide, beef, diva, bike, barn, mama, hand, moon, nail, pond]",[beef diva bike barn mom hand moon pond nail]
+232,break,"[seat, wine, cake, gnat, fire, wife, wire, lady, fork, bike, brat, toad, face, path, skin]",[seat cake wine gnat fire wife wire fork bike]
+233,break,"[ball, pear, town, boss, pita, farm, tide, rice, worm, tent, mine, nerd, coat, crew, papa]",[ball pear town boss farm tide rice worm tent nerd gang papa]
+234,break,"[wall, bell, pear, coin, chin, clip, clan, milk, fern, beer, soda, papa, king, road, lock]",[chin clip clan fern beer soda papa king road lock]
+235,break,"[kite, diva, papa, moon, gang, maid, goat, stew, mate, cola, mama, taco, bike, cave, belt]",[diva kite papa gang goat stew kick mama bike cave belt]
+236,break,"[fire, crab, gulf, nerd, flag, farm, crow, frog, city, bowl, lark, lake, fish, coin, foot]","[fire toad nerd flag farm crow frog city bowl lark lake fish, coin foot]"
+237,break,"[soil, plum, face, chip, mall, carp, mask, coin, neck, dock, fork, isle, card, belt, peak]",[face chip card coin neck dock fork isle]
+238,break,"[soda, shoe, twin, door, fish, film, roof, beer, lady, rock, foot, gnat, pony, back, clip]",[fish film lady beer foot gnat horse back]
+239,break,"[plum, town, fork, belt, lamp, dune, milk, yard, lake, park, hare, fern, gang, wolf, hill]","[plum town pond park, hare fern gang wolf hill]"
+240,break,"[sofa, book, beef, wood, lord, chef, hawk, bear, gnat, beer, hero, hare, chip, dove, game]",[sofa book beef wood lord hawk chef bear gnat dove game]
+241,break,"[pita, loaf, dust, sand, tent, drum, gnat, pond, road, crew, brat, tuna, diva, film, flag]",[pita laof dust sand tent gnat brat drum lake diva film flag]
+242,math,"[soil, crew, hand, tool, milk, roll, bush, rice, lamp, chip, carp, city, nose, king, tent]","[city king nose, soil crew]"
+243,math,"[isle, meat, lake, book, kite, wall, path, lamb, pals, back, reef, flag, dune, roof, cave]",[meat isle lake book kite wall road back roof cave flag]
+244,math,"[bull, duck, roof, king, worm, shop, dock, town, lark, ring, pear, mask, pipe, hero, cake]",[bull duck roof king worm shop town lark ring pear hero cake]
+245,math,"[lamp, mall, barn, king, maid, wire, chin, hill, mist, yard, nail, face, sofa, baby, peer]",[king maid baby sofa wire chin mist yard]
+246,math,"[wife, rope, ball, crew, mist, king, wire, wall, reef, clam, pony, calf, card, lark, cake]",[wife rope ball crew mist king wire wall reef clam pony calf card]
+247,math,"[ball, beef, fire, wire, snow, swan, stew, skin, lark, town, milk, moon, bowl, nose, mama]",[ball beef wire wire snow swan stew skin lark town]
+248,math,"[bowl, clip, cave, crew, tide, game, rice, lamb, soda, coat, lake, swan, isle, gang, pear]","[clip crew lamb coat lake swan beef, gang pear]"
+249,math,"[face, clam, corn, bell, duck, swan, calf, shop, frog, boot, team, vest, mine, film, tuna]","[corn bell, duck shop toad boot vest mine film tuna, face clam]"
+250,math,"[pond, face, lips, beer, wave, king, back, roof, tool, hare, fern, game, hawk, boar, frog]",[lake face lips beer wave king back roof tool hare fern game goat frog bull]
+251,math,"[pipe, lips, dune, mask, toad, rain, soda, beef, hero, clam, face, snow, film, clip, soil]","[pipe lips dune mask toad rain soda beef hero face snow, film clip soil]"
+252,math,"[maid, road, twin, town, tuna, king, wolf, book, foot, drum, fern, shop, sofa, hero, clam]",[]
+253,math,"[chip, wire, note, carp, sofa, wife, lady, dock, mall, frog, neck, folk, deer, bush, rock]",[carp wife lady dock mall sofa hero]
+254,math,"[back, card, chip, reef, lamp, fern, bull, team, peer, farm, bush, salt, pear, carp, pals]",[bull team peer farm pear carp pals]
+255,math,"[coin, boar, tuna, path, drum, book, foot, wall, king, hand, milk, frog, head, hawk, lion]",[foot wall hand king toad head lion hawk]
+256,math,"[bean, soda, back, city, reef, plum, swan, pony, isle, shoe, cave, carp, wire, mist, cake]","[bean soda back city plum swan pony isle, cave carp wire mist]"
+257,math,"[coin, meat, dude, tree, milk, card, chin, yard, goat, wave, shoe, lake, mall, door, star]","[coin meat dude tree milk yard farm goat wave shoe lake, mall door star]"
+258,math,"[clam, plum, lake, chin, hero, rope, frog, lord, lady, boot, crew, cave, boar, hawk, clan]","[plum lake chin hero rope frog lord lady crew foot, cave hawk clan]"
+259,math,"[folk, wrap, tree, skin, hawk, girl, peer, wolf, dove, wood, fire, door, peak, back, seal]",[folk wrap tree skin hawk girl peer wolf dove wood fire door]
+260,math,"[coat, drum, hair, cart, vest, swan, shed, head, rice, tuna, kite, pita, seat, hawk, team]",[]
+261,math,"[sofa, head, hare, diva, isle, wind, twin, cart, crow, salt, baby, game, farm, hawk, ring]","[sofa head hare isle wind twin cart crow salt baby, game farm hawk ring]"
+262,math,"[pony, king, wire, tuna, card, rock, wall, bike, bell, ring, wave, drum, back, peer, moon]","[pony king wire tuna card rock, wave drum back peer]"
+263,math,"[isle, peak, shoe, bush, flag, stew, crow, kite, barn, bowl, hero, bull, ring, clan, nail]",[isle peak boot bush flag stew crow bowl hero bull ring]
