@@ -1,5 +1,5 @@
 trial, condition, presented_words, recalled_words
-1,normal,"[Z, J, E, Q, G, T, V]",[Z, J, E, Q, G, T, V]
+1,normal,"[Z, J, E, Q, G, T, V]","[Z, J, E, Q, G, T, V]"
 2,normal,"[S, P, B, J, N, W, Q]","[S, P, B, J, N, Q, W]"
 3,normal,"[C, J, I, P, M, D, H]","[C, J, I, M, P, D, H]"
 4,normal,"[Y, O, W, Q, D, V, G]","[Y, O, W, Q, G]"
