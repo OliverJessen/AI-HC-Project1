@@ -1,6 +1,6 @@
 # AI-HC-Project1
 
-> AI-HC-Project1 is a Python project that implements code to test the primacy and recency effect on the human working memory, all while being exposed to different conditions to test whether it has an impact or not.
+> AI-HC-Project1 is a Python project that implements code to test the primacy and recency effects on human working memory, while exposing participants to different conditions to examine their potential impact.
 
 ## Table of Contents
 
@@ -8,35 +8,34 @@
 - [Usage](#usage)  
 - [Features](#features)  
 - [Project Structure](#project-structure)  
+- [Repository](#repository)
 
 ## Installation
 
-1. Clone the repository:  
+Clone the repository, navigate into the folder, and install the required packages with the following commands:
 ```bash
 git clone https://github.com/OliverJessen/AI-HC-Project1
-```
-
-2. Navigate to the project folder:
-3. ```bash
 cd AI-HC-Project1
-```
-
-4. Install the required packages
-```bash
 pip install -r requirements.txt
 ```
-
 ## Usage
 
-1. Run the different Free and Serial Recall experiments 20 times each.
-2. Run each analysis .ipynb file to get the data analysed for accuracy, primacy/recency, etc.
+Run the different Free and Serial Recall experiments 20 times each. Then, run the analysis Jupyter notebooks (.ipynb files) to compute accuracy, primacy/recency effects, and other metrics.
 
 ## Features
 
-This project has only two distinct features - testing and analysing.
+- **Testing:** Run Free and Serial Recall memory experiments under multiple conditions.  
+- **Analyzing:** Analyze experiment results for accuracy, primacy, recency, and condition effects.
 
-## Project-Structure
+## Project Structure
 
-In order; Analysis (.ipynb files), Data (.csv files), Experiment_Output (.csv files), Free Recall (.py files), Serial Recall (.py files), requirements (.txt file).
+- `Analysis/` - Jupyter notebooks for analyzing experiment results (.ipynb files)  
+- `Data/` - Input datasets (.csv files)  
+- `Experiment_Output/` - Output from experiments (.csv files)  
+- `Free_Recall/` - Python scripts for Free Recall experiments (.py files)  
+- `Serial_Recall/` - Python scripts for Serial Recall experiments (.py files)  
+- `requirements.txt` - Python dependencies
 
-[AI-HC-Project1 GitHub Repository](https://github.com/OliverJessen/AI-HC-Project1)
+## Repository
+
+https://github.com/OliverJessen/AI-HC-Project1
