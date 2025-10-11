@@ -1,7 +1,6 @@
 # AI-HC-Project1
 
-A brief description of your project. For example:  
-> AI-HC-Project1 is a Python project that implements [your project goal], designed for [purpose/audience].
+> AI-HC-Project1 is a Python project that implements code to test the primacy and recency effect on the human working memory, all while being exposed to different conditions to test whether it has an impact or not.
 
 ## Table of Contents
 
@@ -15,13 +14,17 @@ A brief description of your project. For example:
 1. Clone the repository:  
 ```bash
 git clone https://github.com/OliverJessen/AI-HC-Project1
+```
 
 2. Navigate to the project folder:
+3. ```bash
 cd AI-HC-Project1
+```
 
-3. Install the required packages
+4. Install the required packages
 ```bash
 pip install -r requirements.txt
+```
 
 ## Usage
 
